@@ -11,12 +11,28 @@
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/user','RecordController@index')->name('User_index');
+// Route::get('/user/create','RecordController@create')->name('User_create');
+
+// Route::post('/store','RecordController@store')->name('record_store');
+
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(); 
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/user','UserController@index')->name('User_index');
-Route::get('/user/create','UserController@create')->name('User_create');
+Route::get('/user','RecordController@index')->name('User_index');
+Route::get('/user/create','RecordController@create')->name('User_create');
+Route::get('/user/record','RecordController@index')->name('record');
+Route::post('/user/store','RecordController@store')->name('store');
+Route::delete('/user/delete/{id}','RecordController@destroy')->name('delete');
