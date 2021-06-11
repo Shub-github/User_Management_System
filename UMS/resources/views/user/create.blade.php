@@ -13,15 +13,24 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
                         <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        @error('email')
+    <span class="text-danger">{{$message}}</span>
+    @enderror
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                     <div class="form-group">
                         <label for="Name">Full Name</label>
                         <input type="text" name="name" class="form-control" placeholder="Name">
+                        @error('name')
+    <span class="text-danger">{{$message}}</span>
+    @enderror
                     </div>
                     <div class="form-group">
                         <label for="featured">Featured Image</label>
                         <input type="file" name="image" class="form-control">
+                        @error('image')
+    <span class="text-danger">{{$message}}</span>
+    @enderror
                     </div>
 
 
@@ -36,6 +45,9 @@
                         <div class="form-group ">
                             <label for="start">Start date:</label>
                             <input type="date" class="form-control" id="start" name="start">
+                            @error('start')
+    <span class="text-danger">{{$message}}</span>
+    @enderror
                         </div>
 
                         <!-- end hide -->
@@ -44,6 +56,9 @@
                          <div class="form-group ">
                          <label for="start">End date:</label>
                             <input type="date" class="form-control" id="end" name="end">
+                            @error('end')
+    <span class="text-danger">{{$message}}</span>
+    @enderror
                         </div>
 
                         </div>

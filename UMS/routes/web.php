@@ -31,8 +31,10 @@ Route::get('/', function () {
 Auth::routes(); 
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware(['auth'])->group(function(){
 Route::get('/user','RecordController@index')->name('User_index');
 Route::get('/user/create','RecordController@create')->name('User_create');
 Route::get('/user/record','RecordController@index')->name('record');
 Route::post('/user/store','RecordController@store')->name('store');
 Route::delete('/user/delete/{id}','RecordController@destroy')->name('delete');
+});

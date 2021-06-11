@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\record;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Symfony\Component\HttpFoundation\Session\Session;
 use DateTime;
 
 
@@ -40,6 +41,15 @@ class RecordController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'image'=>'required',
+            'start'=>'required',
+            'end'=>'required',
+        ]);
+
+
         $record = new record;
         $record->name = $request->name;
         $record->email = $request->email;
@@ -63,6 +73,7 @@ class RecordController extends Controller
         }
 
         $record->save();
+        session()->flash('success', 'Record Created successfully!');
         return redirect()->route('record');
     }
 
@@ -114,6 +125,7 @@ class RecordController extends Controller
             File::delete($destination);
         }
         $record->delete();
+        session()->flash('danger', 'Record Deleted successfully!');
         return redirect()->back();
     }
 }
